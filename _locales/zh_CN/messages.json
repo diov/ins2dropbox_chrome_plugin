@@ -1,27 +1,18 @@
 {
-  "extName": {
-    "message": "WeChat MP Notification",
-    "description": "Extension: Name"
-  },
-  "authDB": {
-    "message": "获取授权",
-    "description": "Popup Button: auth"
-  },
-  "authedTip": {
-    "message": "已获取授权",
-    "description": "Popup Button: authed"
-  },
-
-  "noticeficationTitle": {
-    "message": "可爱的小布 ↖(^ω^)↗",
-    "description": "Noticefication: Title"
-  },
-  "updateMessage": {
-    "message": "您收到了%n未读私信!",
-    "description": "Noticefication: Following Update Message"
-  },
-  "errorMessage": {
-    "message": "页面失效，请重新登录",
-    "description": "Noticefication: Following Update Message"
-  }
+    "extName": {
+        "message": "WeChat MP Notification",
+        "description": "Extension: Name"
+    },
+    "authDB": {
+        "message": "获取授权",
+        "description": "Popup Button: auth"
+    },
+    "authedTip": {
+        "message": "已获取授权",
+        "description": "Popup Button: authed"
+    },
+    "deauthDB": {
+        "message": "取消授权",
+        "description": "Popup Button: deauth"
+    }
 }

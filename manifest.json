@@ -27,14 +27,9 @@
         "tabs",
         "webRequest",
         "downloads",
-        "*://*.dropbox.com/1/oauth2/*",
+        "*://*.dropbox.com/oauth2/*",
         "*://api.dropboxapi.com/2/*",
         "*://*.instagram.com/*"
     ],
-    "version": "0.1.0",
-    "web_accessible_resources": [
-        "template.html",
-        "imgs/icon-32.png",
-        "imgs/loading.gif"
-    ]
+    "version": "0.1.1"
 }

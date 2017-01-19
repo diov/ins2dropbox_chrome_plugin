@@ -5,6 +5,7 @@ $(document.body).on('click', '.coreSpriteHeartOpen', function() {
     var datetime = $span.parent().parent().parent().prev().prev().find("time").attr("datetime");
 
     if (imgUrl) {
+        console.log("imageUrl", imgUrl);
         chrome.runtime.sendMessage({
             image: imgUrl,
             author: authorName,
