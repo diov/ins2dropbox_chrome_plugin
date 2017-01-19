@@ -1,0 +1,40 @@
+{
+    "manifest_version": 2,
+    "name": "Ins2Dropbox",
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+    "browser_action": {
+        "default_icon": "imgs/icon-19.png",
+        "default_popup": "popup.html",
+        "default_title": "Ins2Dropbox"
+    },
+    "default_locale": "zh_CN",
+    "description": "Save pic when U like one on Instgram",
+    "icons": {
+        "128": "imgs/icon-128.png",
+        "16": "imgs/icon-16.png",
+        "32": "imgs/icon-32.png"
+    },
+    "content_scripts": [{
+      "matches": ["*://*.instagram.com/*"],
+      "js": ["jquery.min.js", "content.js"]
+    }],
+    "permissions": [
+        "notifications",
+        "storage",
+        "tabs",
+        "webRequest",
+        "downloads",
+        "*://*.dropbox.com/1/oauth2/*",
+        "*://api.dropboxapi.com/2/*",
+        "*://*.instagram.com/*"
+    ],
+    "version": "0.1.0",
+    "web_accessible_resources": [
+        "template.html",
+        "imgs/icon-32.png",
+        "imgs/loading.gif"
+    ]
+}
