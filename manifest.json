@@ -11,7 +11,7 @@
         "default_title": "Ins2Dropbox"
     },
     "default_locale": "zh_CN",
-    "description": "Save pic when U like one on Instgram",
+    "description": "Save pic when U liked it on Instgram",
     "icons": {
         "128": "imgs/icon-128.png",
         "16": "imgs/icon-16.png",
@@ -26,7 +26,6 @@
         "storage",
         "tabs",
         "webRequest",
-        "downloads",
         "*://*.dropbox.com/oauth2/*",
         "*://api.dropboxapi.com/2/*",
         "*://*.instagram.com/*"
