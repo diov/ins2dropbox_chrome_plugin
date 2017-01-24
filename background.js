@@ -1,4 +1,7 @@
 var regex = /access_token=(.+?)(?:&|$)/;
+var imageRegex = /\/([^/]+?)(?:\?|$|#)/;
+var scaleRegex = /s\d+x\d+\//;
+var cacheRegex = /\?ig_cache_key.+/;
 var dropboxUrl = "https://api.dropboxapi.com/2/files/save_url";
 
 chrome.webRequest.onBeforeRedirect.addListener(
@@ -15,14 +18,19 @@ chrome.webRequest.onBeforeRedirect.addListener(
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.image && localStorage['dropbox_auth']) {
-            // chrome.downloads.download({
-            //     url: request.image,
-            //     saveAs: false
-            // })
+            // 取 imageUrl
             var imageUrl = request.image;
-            var imagePath = `${request.author}_${request.datetime}.jpg`
-            var data = `{\"path\": \"/${imagePath}\",\"url\": \"${imageUrl}\"}`;
-            console.log(`imagePath: ${imagePath}, dataUrl: ${data}`);
+            if (imageUrl.match(scaleRegex) != null) {
+                imageUrl = imageUrl.replace(imageUrl.match(scaleRegex)[0], '')
+            }
+            if (imageUrl.match(cacheRegex) != null) {
+                imageUrl = imageUrl.replace(imageUrl.match(cacheRegex)[0], '')
+            }
+
+            var matched = imageUrl.match(imageRegex);
+            var imagePath = `${request.author}_${matched[1]}`
+            var data = `{\"path\": \"/instagram/${imagePath}\",\"url\": \"${imageUrl}\"}`;
+            console.log(data);
 
             var xhr = new XMLHttpRequest();
             xhr.open("POST", dropboxUrl, true);
